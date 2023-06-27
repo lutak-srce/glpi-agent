@@ -1,0 +1,20 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+
+#
+# GLPI Agent Configuration File
+# used by hourly cron job to override the glpi-agent.cfg setup.
+#
+# /!# USING THIS FILE TO OVERRIDE SERVICE OPTIONS NO MORE SUPPORTED!
+# See /usr/lib/systemd/system/glpi-agent.service notice
+#
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+OPTIONS="--debug "
+# Mode, change to "cron" to activate (options: none/cron)
+AGENTMODE[0]=<%= @cron_mode %>
+# GLPI server URI
+AGENTSERVER[0]=<%= @cron_server_url %>
+# Wait before inventory (for cron mode)
+AGENTPAUSE[0]=<%= @cron_pause %>
+# Administrative TAG (optional, must be filed before first inventory)
+AGENTTAG[0]=<%= @cron_tag %>

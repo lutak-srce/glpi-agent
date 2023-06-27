@@ -1,0 +1,20 @@
+# This file is being maintained by Puppet.
+# DO NOT EDIT
+# Custom GLPI agent configuration file
+# For variable explanation, refer to the main configuration file /etc/glpi-agent/agent.cfg!
+
+server = <%= @server_url %>
+debug = <%= @debug %>
+force = <%= @force %>
+lazy = <%= @lazy %>
+html = <%= @html %>
+json = <%= @json %>
+assetname-support = <%= @assetname_support %>
+no-task = <%= @no_task %>
+no-httpd = <%= @no_httpd %>
+#ca-cert-dir = /etc/pki/ca-trust/
+#ca-cert-file =
+no-ssl-check = <%= @no_ssl_check %>
+logger = <%= @logger %>
+logfile = <%= @logfile %>
+logfile-maxsize = 4
