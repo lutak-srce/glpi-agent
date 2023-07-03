@@ -1,22 +1,21 @@
 #
 # == Class glpiagent::install
 #
-class glpiagent::install inherits glpiagent
-{
+class glpiagent::install inherits glpiagent {
 
-    case $facts['os']['family'] {
-      'RedHat', 'CentOS':  {
-        package { $glpiagent::package_name:
-          ensure => $glpiagent::package_ensure,
-        }
+  case $facts['os']['family'] {
+    'RedHat', 'CentOS': {
+      package { $glpiagent::package_name:
+        ensure => $glpiagent::package_ensure,
       }
-      /^(Debian|Ubuntu)$/: {
-        package { $glpiagent::package_name:
-          ensure => $glpiagent::package_ensure,
-        }
+    }
+    /^(Debian|Ubuntu)$/: {
+      package { $glpiagent::package_name:
+        ensure => $glpiagent::package_ensure,
       }
-      default: { warning('This glpiagent module does not work on your OS.') }
-}
+    }
+    default: { warning('This glpiagent module does not work on your OS.') }
+  }
 
   file { '/etc/glpi-agent/conf.d/custom.cfg':
     ensure  => 'present',
