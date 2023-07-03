@@ -24,6 +24,7 @@ class glpiagent::install inherits glpiagent
     group   => 'root',
     mode    => '0644',
     content => template('glpiagent/custom.cfg.erb'),
+    require => Package[$glpiagent::package_name],
   }
 
   file { '/var/log/glpi-agent':
