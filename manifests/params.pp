@@ -8,12 +8,13 @@ class glpiagent::params {
   $lazy              = '0'
   $html              = '0'
   $json              = '0'
-  $assetname_support = '2'
+  $assetname_support = '3'
   $no_task           = 'deploy,esx,remoteinventory,wakeonlan'
   $no_httpd          = '1'
   $no_ssl_check      = '1'
   $logger            = 'file'
   $logfile           = '/var/log/glpi-agent/glpi-agent.log'
+  $package_name      = 'glpi-agent' 
   $package_ensure    = 'latest'
   $cron_enable       = true
   $cron_dest         = '/etc/cron.daily/glpi-agent'
@@ -27,12 +28,9 @@ class glpiagent::params {
 
   case $::osfamily {
     'RedHat': {
-      $package_name = 'glpi-agent'
       $cron_conf    = '/etc/sysconfig/glpi-agent'
     }
     'Debian': {
-      # todo: maknuti srce ili staviti kroz varijablu
-      $package_name = 'glpi-agent-srce'
       $cron_conf    = '/etc/default/glpi-agent'
     }
     default: {}
