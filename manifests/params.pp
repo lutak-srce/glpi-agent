@@ -7,7 +7,7 @@ class glpiagent::params {
   $force             = '1'
   $lazy              = '0'
   $html              = '0'
-  $json              = '0'
+  $json              = '1'
   $assetname_support = '3'
   $no_task           = 'deploy,esx,remoteinventory,wakeonlan'
   $no_httpd          = '1'
