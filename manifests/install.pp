@@ -26,6 +26,15 @@ class glpiagent::install inherits glpiagent {
     require => Package[$glpiagent::package_name],
   }
 
+  file { '/etc/glpi-agent-data.json':
+    ensure  => 'present',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => template('glpiagent/glpi-agent-data.erb'),
+    require => Package[$glpiagent::package_name],
+  }
+
   file { '/var/log/glpi-agent':
     ensure => 'directory',
     owner  => 'root',
