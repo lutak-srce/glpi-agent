@@ -20,7 +20,7 @@ class glpiagent::params {
   $cron_dest         = '/etc/cron.daily/glpi-agent'
   $cron_mode         = 'cron'
   $cron_server_url   = undef
-  $cron_pause        = '60'
+  $cron_pause        = '1800'
   $cron_tag          = ''
   $service_enable    = false
   $service_name      = 'glpi-agent'
