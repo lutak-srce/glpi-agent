@@ -14,7 +14,7 @@ class glpiagent::params {
   $no_ssl_check      = '1'
   $logger            = 'file'
   $logfile           = '/var/log/glpi-agent/glpi-agent.log'
-  $package_name      = 'glpi-agent' 
+  $package_name      = 'glpi-agent'
   $package_ensure    = 'latest'
   $cron_enable       = true
   $cron_dest         = '/etc/cron.daily/glpi-agent'
@@ -27,7 +27,7 @@ class glpiagent::params {
   $service_ensure    = 'stopped'
   $additional_content = '/etc/glpi-agent-data.json'
 
-  case $::osfamily {
+  case $facts['os']['family'] {
     'RedHat': {
       $cron_conf    = '/etc/sysconfig/glpi-agent'
     }
